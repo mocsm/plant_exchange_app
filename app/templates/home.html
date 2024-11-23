@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Plant Exchange</title>
+
+    <!-- Internal CSS to style the page directly in the HTML -->
+    <style>
+        /* General Reset and Box Model */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f9f4; /* Light green background */
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: #4CAF50; /* Plant-like green */
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #45a049; /* Darker green on hover */
+            border-radius: 5px;
+        }
+
+        .navbar .btn {
+            background-color: #ff5722; /* Red-orange for action buttons */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.1em;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .navbar .btn:hover {
+            background-color: #e64a19; /* Darker red-orange on hover */
+        }
+
+        /* Main Content Styling */
+        .content {
+            margin-top: 80px; /* Offset the navbar */
+            padding: 20px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            font-size: 2em;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .section ul li {
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="nav-links">
+            <a href="#who-we-are">Who Are We</a>
+            <a href="#contact">Contact</a>
+            <a href="#the-goal">The Goal</a>
+            <a href="#additional-info">Additional Info</a>
+        </div>
+        <div class="nav-actions">
+            <button class="btn" onclick="addListing()">Add Listing</button>
+            <button class="btn" onclick="goToPlantsList()">Plants List</button>
+            <button class="btn" onclick="logout()">Logout</button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+
+        <!-- Who Are We Section -->
+        <div class="section" id="who-we-are">
+            <h2>Who Are We</h2>
+            <p>We are a community-driven platform designed to connect plant lovers around the world. Our mission is to facilitate the exchange of plants, gardening tips, and resources, fostering a greener world and helping you grow your collection!</p>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="section" id="contact">
+            <h2>Contact</h2>
+            <p>Have questions or want to get in touch? Reach us at:</p>
+            <ul>
+                <li>Email: support@plantexchange.com</li>
+                <li>Phone: +1 (800) 555-1234</li>
+                <li>Address: 123 Green St, Plant City, USA</li>
+            </ul>
+        </div>
+
+        <!-- The Goal Section -->
+        <div class="section" id="the-goal">
+            <h2>The Goal</h2>
+            <p>Our primary goal is to create a global plant exchange network where enthusiasts can share and trade plants with each other. Whether you're a beginner or an experienced gardener, you can find or offer plants, advice, and inspiration here.</p>
+        </div>
+
+        <!-- Additional Info Section -->
+        <div class="section" id="additional-info">
+            <h2>Additional Info</h2>
+            <p>We believe in sustainability and the power of plants to improve our lives. Our platform aims to provide a safe and welcoming space for plant lovers to interact, share, and learn.</p>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Plant Exchange. All rights reserved.</p>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Add Listing Action
+        function addListing() {
+            alert("Navigating to the Add Listing page...");
+            // Redirect to the add listing page (to be created)
+            window.location.href = "add_listing.html"; // Replace with actual add listing page URL
+        }
+
+        // Go to Plants List
+        function goToPlantsList() {
+            alert("Navigating to the Plants List page...");
+            // Redirect to the plants list page (to be created)
+            window.location.href = "plants_list.html"; // Replace with actual plants list page URL
+        }
+
+        // Logout Action
+        function logout() {
+            alert("Logging out...");
+            // Perform logout action (e.g., clear session, redirect to login page)
+            window.location.href = "login.html"; // Redirect to login page
+        }
+    </script>
+</body>
+</html>

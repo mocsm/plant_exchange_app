@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plants List - Plant Exchange</title>
+
+    <!-- Internal CSS to style the page directly in the HTML -->
+    <style>
+        /* General Reset and Box Model */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f9f4; /* Light green background */
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: #4CAF50; /* Plant-like green */
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #45a049; /* Darker green on hover */
+            border-radius: 5px;
+        }
+
+        .navbar .btn {
+            background-color: #ff5722; /* Red-orange for action buttons */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.1em;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .navbar .btn:hover {
+            background-color: #e64a19; /* Darker red-orange on hover */
+        }
+
+        /* Main Content Styling */
+        .content {
+            margin-top: 80px; /* Offset the navbar */
+            padding: 20px;
+        }
+
+        /* Plants List Section */
+        .plants-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        /* Plant Card Styling */
+        .plant-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .plant-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .plant-card h3 {
+            font-size: 1.5em;
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        .plant-card p {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        /* Plant Details Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .modal-content h2 {
+            font-size: 2em;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        .modal-content p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .close-btn {
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.1em;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .close-btn:hover {
+            background-color: #e64a19; /* Darker red-orange on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="#plants-list">Plants List</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+
+        <!-- Plants List Section -->
+        <div class="plants-list" id="plants-list">
+            <div class="plant-card" onclick="showPlantDetails('Aloe Vera', 'John Doe', 'New York', 'Aloe Vera', 'Medium')">
+                <h3>Aloe Vera</h3>
+                <p>Click to see more details</p>
+            </div>
+
+            <div class="plant-card" onclick="showPlantDetails('Snake Plant', 'Jane Smith', 'Los Angeles', 'Snake Plant', 'Tall')">
+                <h3>Snake Plant</h3>
+                <p>Click to see more details</p>
+            </div>
+
+            <div class="plant-card" onclick="showPlantDetails('Fern', 'Alice Brown', 'Chicago', 'Fern', 'Small')">
+                <h3>Fern</h3>
+                <p>Click to see more details</p>
+            </div>
+
+            <!-- Add more plants here as needed -->
+        </div>
+    </div>
+
+    <!-- Modal for Plant Details -->
+    <div class="modal" id="plantModal">
+        <div class="modal-content">
+            <h2 id="modalPlantName">Plant Name</h2>
+            <p><strong>Owner:</strong> <span id="modalOwner">Owner Name</span></p>
+            <p><strong>Place:</strong> <span id="modalPlace">Place</span></p>
+            <p><strong>Plant Type:</strong> <span id="modalType">Plant Type</span></p>
+            <p><strong>Size:</strong> <span id="modalSize">Size</span></p>
+            <button class="close-btn" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Plant Exchange. All rights reserved.</p>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Show Plant Details in Modal
+        function showPlantDetails(name, owner, place, type, size) {
+            document.getElementById('modalPlantName').innerText = name;
+            document.getElementById('modalOwner').innerText = owner;
+            document.getElementById('modalPlace').innerText = place;
+            document.getElementById('modalType').innerText = type;
+            document.getElementById('modalSize').innerText = size;
+
+            // Display the modal
+            document.getElementById('plantModal').style.display = 'flex';
+        }
+
+        // Close the Modal
+        function closeModal() {
+            document.getElementById('plantModal').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
